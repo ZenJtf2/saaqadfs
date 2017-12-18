@@ -27,6 +27,8 @@ $credential = New-Object System.Management.Automation.PSCredential ("$DomainName
 
 Install-windowsfeature -name AD-Domain-Services -IncludeAllSubFeature -IncludeManagementTools
 
+Try 
+ { 
 Import-Module ADDSDeployment
 
 Install-ADDSDomainController `
@@ -43,3 +45,13 @@ Install-ADDSDomainController `
 -InstallDns:$true `
 -NoRebootOnCompletion:$false `
 -Force:$true
+
+ }
+ 
+ Catch 
+ { 
+  $error | out-file c:\temp\error.txt 
+ } 
+　
+
+ 
