@@ -17,9 +17,9 @@ Param(
 
 )
 
-#Initialize-Disk -Number 2 -PartitionStyle GPT
-#New-Partition -UseMaximumSize -DriveLetter E -DiskNumber 2
-#Format-Volume -DriveLetter E -Confirm:$false -FileSystem NTFS -force 
+Initialize-Disk -Number 2 -PartitionStyle GPT
+New-Partition -UseMaximumSize -DriveLetter E -DiskNumber 2
+Format-Volume -DriveLetter E -Confirm:$false -FileSystem NTFS -force 
 
 $secSafeModePassword = ConvertTo-SecureString $SafeModePassword -AsPlainText -Force
 $secAdminPassword = ConvertTo-SecureString $AdminPassword -AsPlainText -Force
